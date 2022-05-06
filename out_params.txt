@@ -1,0 +1,22 @@
+colorado:
+/eos/out/active/wheel/1, Intens [0](s), 1(i), 0.000(f)
+/eos/out/active/wheel/2, Red [100](s), 3(i), 100.000(f)
+/eos/out/active/wheel/11, Zoom [7](s), 5(i), 7.000(f)
+
+plat spot
+/eos/out/active/wheel/1, Intens [0](s), 1(i), 0.000(f)
+/eos/out/active/wheel/2, Pan [0](s), 2(i), 0.000(f)
+/eos/out/active/wheel/8, Color Select [1](s), 3(i), 0.500(f)
+/eos/out/active/wheel/10, Gobo Select [1](s), 4(i), 0.500(f)
+/eos/out/active/wheel/12, Beam Fx Ind/Spd [-1](s), 4(i), -1.000(f)
+/eos/out/active/wheel/14, Iris [100](s), 5(i), 100.000(f)
+
+
+Intens: %
+R/G/B/W/A: %
+Zoom: deg
+Pan/Tilt: deg
+Edge: %
+Iris:
+Color/Gobo Select: float is 0.5 if homed, integer values otherwise (just map 0.5 to 1)
+Prism/Beam Fx Select:

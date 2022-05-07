@@ -18,9 +18,9 @@
     SLIPEncodedSerial SLIPSerial(Serial);
 #endif
 #include <U8x8lib.h>
-//#ifdef U8X8_HAVE_HW_SPI
-//    #include <SPI.h>
-//#endif
+#ifdef U8X8_HAVE_HW_SPI
+#include <SPI.h>
+#endif
 
 
 /*******************************************************************************
@@ -182,7 +182,7 @@ void issueSubscribes()
     filter.send(SLIPSerial);
     SLIPSerial.endPacket();
 
-/*    if (true)
+    /*if (true)
     {
         // subscribe to Eos pan & tilt updates
         OSCMessage subOne("/eos/subscribe/param/pan/tilt/zoom/edge");
@@ -606,11 +606,11 @@ void setup()
     SLIPSerial.begin(115200);
     // This is a hack around an Arduino bug. It was taken from the OSC library
     // examples
-    #ifdef BOARD_HAS_USB_SERIAL
-        while (!SerialUSB);
-    #else
-        while (!Serial);
-    #endif
+    //#ifdef BOARD_HAS_USB_SERIAL
+    //    while (!SerialUSB);
+    //#else
+    //    while (!Serial);
+    //#endif
 
     // This is necessary for reconnecting a device because it needs some time
     // for the serial port to open, but meanwhile the handshake message was
@@ -620,12 +620,12 @@ void setup()
     SLIPSerial.endPacket();
 
     // Let Eos know we want updates on some things
-    issueSubscribes();
+    //issueSubscribes();
 
-    initEncoder(&enc1Wheel, ENC1_CLK, ENC1_DT, ENC1_DIR);
-    initEncoder(&enc2Wheel, ENC2_CLK, ENC2_DT, ENC2_DIR);
-    initEncoder(&enc3Wheel, ENC3_CLK, ENC3_DT, ENC3_DIR);
-    initEncoder(&enc4Wheel, ENC4_CLK, ENC4_DT, ENC4_DIR);
+    //initEncoder(&enc1Wheel, ENC1_CLK, ENC1_DT, ENC1_DIR);
+    //initEncoder(&enc2Wheel, ENC2_CLK, ENC2_DT, ENC2_DIR);
+    //initEncoder(&enc4Wheel, ENC4_CLK, ENC4_DT, ENC4_DIR);
+    //initEncoder(&enc3Wheel, ENC3_CLK, ENC3_DT, ENC3_DIR);
 
     display.begin();
 

@@ -246,8 +246,10 @@ void parseParams(OSCMessage &msg, int wheelNum){
     msg.getOSCData(0)->getString(name);
     int type = msg.getOSCData(1)->getInt();
     float pos = msg.getOSCData(2)->getFloat();
-    pos = type;
-    type = int(pos);
+    enc1Wheel.name = name;
+    enc1Wheel.pos = pos;
+    enc1Wheel.type = type;
+
 }
 /*******************************************************************************
    Given an unknown OSC message we check to see if it's a handshake message.
@@ -308,6 +310,7 @@ void displayStatus()
 
     if (!connectedToEos)
     {
+        display.clear();
         display.drawString(0, 0, "ML Controller");
         display.drawString(0, 2, VERSION_STRING);
         display.drawString(0, 4, "Waiting for");
@@ -315,6 +318,7 @@ void displayStatus()
     }
     else
     {
+        display.clear();
         display.drawString(0, 0, enc1Wheel.name.c_str() + ':' + ' ' + char(enc1Wheel.pos) + enc1Wheel.unit);
         display.drawString(0, 2, enc2Wheel.name.c_str() + ':' + ' ' + char(enc2Wheel.pos) + enc2Wheel.unit);
         display.drawString(0, 4, enc3Wheel.name.c_str() + ':' + ' ' + char(enc3Wheel.pos) + enc3Wheel.unit);
